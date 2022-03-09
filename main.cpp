@@ -85,6 +85,7 @@ int main() {
     Nava nava3 = nava1;
     nava2 = nava3 = nava1;
     Port port{ro, "Constanta"};
+    Port port{ro, "Braila"};
     std::cout << nava1;
     return 0;
 }
