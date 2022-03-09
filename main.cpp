@@ -17,11 +17,24 @@ Marfa NU_E_MARFA{"Nimic", 0};
 
 class Tara {
     std::string nume;
+    std::string continent;
 public:
-    explicit Tara(const std::string &nume) : nume(nume) {}
+    Tara(const std::string &nume, const std::string &continent) : nume(nume), continent(continent) {}
 
     friend std::ostream& operator<<(std::ostream& os, const Tara& tara) {
-        os << "{Nume: " << tara.nume << "}\n";
+        os << "{Nume: " << tara.nume << " Continent: " << tara.continent << "}\n";
+        return os;
+    }
+};
+
+class Port {
+    Tara tara;
+    std::string oras;
+public:
+    Port(const Tara &tara, const std::string &oras) : tara(tara), oras(oras) {}
+
+    friend std::ostream& operator<<(std::ostream& os, const Port& port) {
+        os << "{Tara: " << port.tara << " Oras: " << port.oras << "}\n";
         return os;
     }
 };
@@ -64,13 +77,14 @@ public:
 };
 
 int main() {
-    Tara ro{"Romania"};
-    Marfa marfa1{"banane",1};
+    Tara ro{"Romania", "Europa"};
+    Marfa marfa1{"banane", 1};
     Nava nava1{"Mircea", ro, 100, marfa1};
     nava1.descarca();
     Nava nava2{"Mircea2", ro, 100, marfa1};
     Nava nava3 = nava1;
     nava2 = nava3 = nava1;
+    Port port{ro, "Constanta"};
     std::cout << nava1;
     return 0;
 }
