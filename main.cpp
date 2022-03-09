@@ -18,7 +18,7 @@ Marfa NU_E_MARFA{"Nimic", 0};
 class Tara {
     std::string nume;
 public:
-    Tara(const std::string &nume) : nume(nume) {}
+    explicit Tara(const std::string &nume) : nume(nume) {}
 
     friend std::ostream& operator<<(std::ostream& os, const Tara& tara) {
         os << "{Nume: " << tara.nume << "}\n";
