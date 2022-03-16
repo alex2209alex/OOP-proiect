@@ -112,7 +112,7 @@ public:
         this->port = APA;
     }
 
-    void intra_port(Port &port_destinatie) {
+    void intra_port(const Port &port_destinatie) {
         int n = int(this->marfuri.size() - 1);
         for(int i = 0; i <= n; ++i) {
             if (this->marfuri[i].getDestinatie() == port_destinatie) {
@@ -134,6 +134,7 @@ public:
             }
         }
         this->marfuri.push_back(marfa);
+
     }
 
     ~Nava() {
