@@ -134,7 +134,6 @@ public:
             }
         }
         this->marfuri.push_back(marfa);
-
     }
 
     ~Nava() {
