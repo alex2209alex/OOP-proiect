@@ -112,14 +112,15 @@ public:
         this->port = APA;
     }
 
-    void intra_port(Port &port) {
+    void intra_port(Port &port_destinatie) {
         int n = int(this->marfuri.size() - 1);
         for(int i = 0; i <= n; ++i) {
-            if (this->marfuri[i].getDestinatie() == port) {
+            if (this->marfuri[i].getDestinatie() == port_destinatie) {
                 this->marfuri[i] = this->marfuri[n];
                 n--;
             }
         }
+        this->port = port_destinatie;
         this->marfuri.resize(n + 1);
     }
 
