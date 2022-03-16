@@ -113,7 +113,7 @@ public:
     }
 
     void intra_port(Port &port) {
-        int n = this->marfuri.size() - 1;
+        int n = int(this->marfuri.size() - 1);
         for(int i = 0; i <= n; ++i) {
             if (this->marfuri[i].getDestinatie() == port) {
                 this->marfuri[i] = this->marfuri[n];
