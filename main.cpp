@@ -126,13 +126,15 @@ public:
 
     void adauga_marfa(Marfa marfa) {
         int suma_tonaj = 0;
-        for(auto it : this->marfuri)
+        for(auto it : this->marfuri) {
             suma_tonaj += it.getTonaj();
-        if(marfa.getTonaj() + suma_tonaj <= this->capacitate)
-            this->marfuri.push_back(marfa);
-        else {
-            std::cout << "Nu are loc marfa:" << marfa << " in nava:" << *this;
+            if(marfa.getTonaj() + suma_tonaj > this->capacitate) {
+                std::cout << "Nu are loc marfa:" << marfa << " in nava:" << *this;
+                return;
+            }
         }
+        this->marfuri.push_back(marfa);
+
     }
 
     ~Nava() {
