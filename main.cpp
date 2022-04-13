@@ -15,9 +15,7 @@ public:
     }
 
     friend bool operator==(const Tara& tara, const Tara& tara2) {
-        if(tara.nume == tara2.nume && tara.continent == tara2.continent)
-            return true;
-        return false;
+        return tara.nume == tara2.nume && tara.continent == tara2.continent;
     }
 };
 
@@ -47,7 +45,7 @@ Port APA{INTERNATIONAL, "INTERNATIONAL_WATERS"};
 
 class Marfa {
     std::string tip;
-    int tonaj;
+    int tonaj{0};
     Port destinatie;
 public:
     Marfa() {}
