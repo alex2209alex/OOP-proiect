@@ -99,8 +99,8 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Nava& nava) {
         os << "{Nume: " << nava.nume << " Tara: " << nava.tara << " Capacitate: " << nava.capacitate << " Marfuri: ";
-        for(auto it : nava.marfuri) {
-            os << it << " ";
+        for(const auto& marfa : nava.marfuri) {
+            os << marfa << " ";
         }
         os << "}\n";
         return os;
