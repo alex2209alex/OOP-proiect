@@ -92,8 +92,8 @@ public:
 
     void afiseaza_marfuri() {
         std::cout << "Marfuri:";
-        for(const auto& marfa : nava.marfuri) {
-            os << marfa << " ";
+        for(const auto& marfa : this->marfuri) {
+            std::cout << marfa << " ";
         }
         std::cout << '\n';
     }
