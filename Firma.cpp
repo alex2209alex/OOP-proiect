@@ -3,6 +3,7 @@
 //
 
 #include "Firma.h"
+#include <vector>
 
 Firma::Firma(const std::string &nume) : nume(nume) {nrFirme++;}
 
@@ -18,8 +19,8 @@ void Firma::cumpara_nava(Nava &nava) {
 
 std::ostream &operator<<(std::ostream &os, const Firma &firma) {
     os << "Nume: " << firma.nume << " Flota: ";
-    for(auto& it : firma.flota) {
-        os << *it;
+    for(unsigned long  long i = 0; i < firma.flota.size(); ++i) {
+        os << *firma.flota[i];
     }
     return os;
 }
