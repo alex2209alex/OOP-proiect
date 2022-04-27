@@ -1,23 +1,7 @@
 #include <iostream>
 #include <vector>
 
-class Tara {
-    std::string nume;
-    std::string continent;
-public:
-    Tara() {}
-
-    Tara(const std::string &nume, const std::string &continent) : nume(nume), continent(continent) {}
-
-    friend std::ostream& operator<<(std::ostream& os, const Tara& tara) {
-        os << "{Nume: " << tara.nume << " Continent: " << tara.continent << "}\n";
-        return os;
-    }
-
-    friend bool operator==(const Tara& tara, const Tara& tara2) {
-        return tara.nume == tara2.nume && tara.continent == tara2.continent;
-    }
-};
+#include "Tara.h"
 
 class Port {
     Tara tara;
