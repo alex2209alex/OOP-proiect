@@ -24,7 +24,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml when changing name here
-add_executable(${PROJECT_NAME} main.cpp Tara.cpp Tara.h Port.cpp Port.h)
+add_executable(${PROJECT_NAME} main.cpp Tara.cpp Tara.h Port.cpp Port.h Nava.cpp Nava.h NavaPetrolier.cpp NavaPetrolier.h NavaDePasageri.cpp NavaDePasageri.h NavaMarfa.cpp NavaMarfa.h NavaTransportContainere.cpp NavaTransportContainere.h Container.cpp Container.h)
 
 ###############################################################################
 
