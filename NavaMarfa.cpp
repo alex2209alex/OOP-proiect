@@ -10,3 +10,5 @@ std::ostream &operator<<(std::ostream &os, const NavaMarfa &marfa) {
     os << static_cast<const Nava &>(marfa) << "\n";
     return os;
 }
+
+NavaMarfa::~NavaMarfa() = default;
