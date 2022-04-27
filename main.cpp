@@ -6,6 +6,9 @@
 #include "NavaDePasageri.h"
 #include "NavaPetrolier.h"
 #include "NavaTransportContainere.h"
+#include "Firma.h"
+
+
 
 int main() {
     Tara ro{"Romania", "Europa"};
@@ -65,6 +68,12 @@ int main() {
     std::cout << "//-------------------------------------\n";
     const NavaMarfa* nava = nava_pet.clone();
     std::cout << *nava;
+    std::cout << "//-------------------------------------\n";
     delete nava;
+    Firma firma{"Firma1"};
+    firma.cumpara_nava(nava_tr_cont);
+    std::cout << Firma::getNrFirme() << "\n";
+    std::cout << "//-------------------------------------\n";
+    std::cout << firma;
     return 0;
 }
