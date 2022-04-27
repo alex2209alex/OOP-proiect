@@ -63,5 +63,7 @@ int main() {
     std::cout << "//-------------------------------------\n";
     nava_pet.incarcare(1000000);
     std::cout << "//-------------------------------------\n";
+    const NavaMarfa* nava = nava_pet.clone();
+    std::cout << *nava;
     return 0;
 }

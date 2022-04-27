@@ -13,6 +13,7 @@ public:
     NavaMarfa(NavaMarfa& other) = default;
     virtual void descarcare() = 0;
     NavaMarfa(const Port &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber);
+    virtual NavaMarfa *clone() = 0;
     friend std::ostream &operator<<(std::ostream &os, const NavaMarfa &marfa);
     ~NavaMarfa() override;
 };
