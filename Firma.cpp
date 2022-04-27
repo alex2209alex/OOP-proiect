@@ -18,7 +18,7 @@ void Firma::cumpara_nava(Nava &nava) {
 
 std::ostream &operator<<(std::ostream &os, const Firma &firma) {
     os << "Nume: " << firma.nume << " Flota: ";
-    for(const auto &nava : firma.flota) {
+    for(auto const &nava : firma.flota) {
         os << *nava;
     }
     return os;
