@@ -19,7 +19,6 @@ public:
     Nava(const Nava&);
     Nava &operator=(const Nava &a);
     void intrare_port(const Port &port);
-    virtual Nava *clone();
     friend std::ostream &operator<<(std::ostream &os, const Nava &nava);
     virtual ~Nava() = default;
 };

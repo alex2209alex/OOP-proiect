@@ -30,10 +30,6 @@ void Nava::intrare_port(const Port &port) {
     }
 }
 
-Nava *Nava::clone() {
-    return new Nava(*this);
-}
-
 std::ostream &operator<<(std::ostream &os, const Nava &nava) {
     os << "portCurent: " << nava.portCurent << " denumire: " << nava.denumire << " pavilion: " << nava.pavilion
        << " imoNumber: " << nava.imoNumber << "\n";
