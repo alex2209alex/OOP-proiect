@@ -2,26 +2,7 @@
 #include <vector>
 
 #include "Tara.h"
-
-class Port {
-    Tara tara;
-    std::string oras;
-public:
-    Port() {}
-
-    Port(const Tara &tara, const std::string &oras) : tara(tara), oras(oras) {}
-
-    friend std::ostream& operator<<(std::ostream& os, const Port& port) {
-        os << "{Tara: " << port.tara << " Oras: " << port.oras << "}\n";
-        return os;
-    }
-
-    friend bool operator==(const Port& port, const Port& port2) {
-        if(port.tara == port2.tara && port.oras == port2.oras)
-            return true;
-        return false;
-    }
-};
+#include "Port.h"
 
 Tara INTERNATIONAL{"INTERNATIONAL", "INTERNATIONAL"};
 Port APA{INTERNATIONAL, "INTERNATIONAL_WATERS"};
@@ -130,22 +111,7 @@ public:
 int main() {
     Tara ro{"Romania", "Europa"};
     Tara it{"Italia", "Europa"};
-    Port Constanta{ro, "Constanta"};
-    Port Braila{ro, "Braila"};
-    Port Roma{it, "Roma"};
-    Marfa marfa1{"banane", 1, Constanta};
-    Marfa marfa2{"mere", 1, Roma};
-    Nava nava1{"Mircea", ro, 1, Braila};
-
-    nava1.adauga_marfa(marfa1);
-    nava1.adauga_marfa(marfa2);
-
-    nava1.iese_port();
-    nava1.afiseaza_marfuri();
-    nava1.intra_port(Constanta);
-    nava1.afiseaza_marfuri();
-
-
-    std::cout << nava1;
+    Port ct{ro, "Constanta"};
+    std::cout << ct << ro;
     return 0;
 }

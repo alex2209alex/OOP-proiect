@@ -17,7 +17,7 @@ Tara &Tara::operator=(const Tara &a) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Tara& tara) {
-    os << "{Nume: " << tara.nume << " Continent: " << tara.continent << "}\n";
+    os << "Tara: {Nume: " << tara.nume << " Continent: " << tara.continent << "}\n";
     return os;
 }
 
