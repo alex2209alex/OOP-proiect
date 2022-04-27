@@ -14,6 +14,8 @@ class Tara {
 public:
     Tara();
     Tara(const std::string &nume, const std::string &continent);
+    Tara(const Tara &other);
+    Tara& operator=(const Tara& a);
     friend std::ostream& operator<<(std::ostream& os, const Tara& tara);
     friend bool operator==(const Tara& tara, const Tara& tara2);
     ~Tara();

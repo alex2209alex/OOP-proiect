@@ -5,8 +5,16 @@
 #include "Tara.h"
 
 Tara::Tara() = default;
-
 Tara::Tara(const std::string &nume, const std::string &continent) : nume(nume), continent(continent) {}
+Tara::Tara(const Tara &other) : nume(other.nume), continent(other.continent) {}
+
+Tara &Tara::operator=(const Tara &a) {
+    if(&a != this) {
+        nume = a.nume;
+        continent = a.continent;
+    }
+    return *this;
+}
 
 std::ostream& operator<<(std::ostream& os, const Tara& tara) {
     os << "{Nume: " << tara.nume << " Continent: " << tara.continent << "}\n";
