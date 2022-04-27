@@ -22,6 +22,13 @@ public:
     void inchiderePort();
     friend std::ostream& operator<<(std::ostream& os, const Port& port);
     friend bool operator==(const Port& port, const Port& port2);
+
+    int getStarePortInchis() const;
+
+    int getStarePortInOperare() const;
+
+    int getStarePort() const;
+
     ~Port();
 
 };

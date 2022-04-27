@@ -21,14 +21,12 @@ class NavaTransportContainere : public NavaMarfa {
     int capacitateMaxima;
     std::vector<Container> marfuri;
 public:
-    NavaTransportContainere(const Port &portCurent, const std::string &denumire, const Tara &pavilion, const int imoNumber, const int capcitateMaxima) : NavaMarfa(portCurent, denumire, pavilion, imoNumber), capacitateMaxima(capcitateMaxima) {}
+    NavaTransportContainere(const Port &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber, int capcitateMaxima);
+    void adauga_container(const Container& container);
     void descarcare() override;
-    void adauga_container(Container container);
-    NavaMarfa *clone() override {
-        return new NavaTransportContainere(*this);
-    }
-
+    NavaMarfa *clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaTransportContainere &containere);
+    ~NavaTransportContainere() override;
 };
 
 

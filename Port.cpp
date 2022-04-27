@@ -6,7 +6,7 @@
 
 Port::Port() {
     this->starePort = STARE_PORT_IN_OPERARE;
-};
+}
 Port::Port(const Tara &tara, const std::string &oras) : tara(tara), oras(oras) {
     this->starePort = STARE_PORT_IN_OPERARE;
 }
@@ -38,6 +38,18 @@ void Port::deschiderePort() {
 
 void Port::inchiderePort() {
     this->starePort = this->STARE_PORT_INCHIS;
+}
+
+int Port::getStarePortInchis() const {
+    return STARE_PORT_INCHIS;
+}
+
+int Port::getStarePortInOperare() const {
+    return STARE_PORT_IN_OPERARE;
+}
+
+int Port::getStarePort() const {
+    return starePort;
 }
 
 Port::~Port() = default;

@@ -10,10 +10,9 @@
 
 class NavaMarfa : public Nava {
 public:
+    NavaMarfa(NavaMarfa& other) = default;
     virtual void descarcare() = 0;
-    virtual NavaMarfa *clone() = 0;
-    NavaMarfa(const Port &portCurent, const std::string &denumire, const Tara &pavilion, const int imoNumber) : Nava(portCurent, denumire, pavilion, imoNumber) {}
-
+    NavaMarfa(const Port &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber);
     friend std::ostream &operator<<(std::ostream &os, const NavaMarfa &marfa);
 };
 

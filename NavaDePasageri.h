@@ -5,13 +5,19 @@
 #ifndef OOP_NAVADEPASAGERI_H
 #define OOP_NAVADEPASAGERI_H
 
+#include <ostream>
+#include "Nava.h"
 
-class NavaDePasageri {
+class NavaDePasageri : public Nava {
     int nrMaximPasageri;
     int nrPasageriCurent;
 public:
+    NavaDePasageri(const Port&, const std::string&, const Tara&, int, int, int);
     void imbarcare(int);
     void debarcare(int);
+    NavaDePasageri *clone() override;
+    friend std::ostream &operator<<(std::ostream &os, const NavaDePasageri &pasageri);
+    ~NavaDePasageri() override;
 };
 
 
