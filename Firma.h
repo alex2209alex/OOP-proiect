@@ -16,7 +16,7 @@ class Firma {
 public:
     static int nrFirme;
     static int getNrFirme();
-    Firma(std::string);
+    explicit Firma(std::string);
     void cumpara_nava(Nava&);
     friend std::ostream &operator<<(std::ostream &os, const Firma &firma);
     virtual ~Firma();
