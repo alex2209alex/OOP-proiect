@@ -65,5 +65,6 @@ int main() {
     std::cout << "//-------------------------------------\n";
     const NavaMarfa* nava = nava_pet.clone();
     std::cout << *nava;
+    delete nava;
     return 0;
 }
