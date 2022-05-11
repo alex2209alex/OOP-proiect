@@ -15,7 +15,7 @@ public:
     NavaDePasageri(const Port&, const std::string&, const Tara&, int, int, int);
     void imbarcare(int);
     void debarcare(int);
-    NavaDePasageri *clone();
+    NavaDePasageri *clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaDePasageri &pasageri);
     ~NavaDePasageri() override;
 };
