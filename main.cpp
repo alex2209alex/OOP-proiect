@@ -71,7 +71,7 @@ int main() {
     std::cout << "//-------------------------------------\n";
     delete nava;
     Firma firma{"Firma1"};
-    firma.cumpara_nava(nava_tr_cont);
+    firma.cumpara_nava(&nava_tr_cont);
     std::cout << Firma::getNrFirme() << "\n";
     std::cout << "//-------------------------------------\n";
     std::cout << firma;

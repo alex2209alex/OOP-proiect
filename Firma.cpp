@@ -3,7 +3,6 @@
 //
 
 #include "Firma.h"
-#include <vector>
 
 Firma::Firma(const std::string &nume) : nume(nume) {nrFirme++;}
 
@@ -13,8 +12,8 @@ int Firma::getNrFirme() {
 
 int Firma::nrFirme = 0;
 
-void Firma::cumpara_nava(Nava &nava) {
-    flota.push_back(&nava);
+void Firma::cumpara_nava(Nava *nava) {
+    flota.push_back(nava);
 }
 
 std::ostream &operator<<(std::ostream &os, const Firma &firma) {
