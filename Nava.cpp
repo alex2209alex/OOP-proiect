@@ -39,3 +39,7 @@ std::ostream &operator<<(std::ostream &os, const Nava &nava) {
 bool operator==(Nava nava1, Nava nava2) {
     return nava1.imoNumber == nava2.imoNumber;
 }
+
+Nava *Nava::clone() {
+    return new Nava(*this);
+}

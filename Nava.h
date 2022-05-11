@@ -17,7 +17,7 @@ protected:
 public:
     Nava(const Port &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber);
     Nava(const Nava&);
-    virtual Nava *clone() = 0;
+    virtual Nava *clone();
     Nava &operator=(const Nava &a);
     void intrare_port(const Port &port);
     friend bool operator==(Nava nava1, Nava nava2);
