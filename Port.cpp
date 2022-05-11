@@ -5,10 +5,10 @@
 #include "Port.h"
 
 Port::Port() {
-    this->starePort = STARE_PORT_IN_OPERARE;
+    this->starePort = 1;
 }
 Port::Port(const Tara &tara, const std::string &oras) : tara(tara), oras(oras) {
-    this->starePort = STARE_PORT_IN_OPERARE;
+    this->starePort = 1;
 }
 Port::Port(const Port &other) : tara(other.tara), oras(other.oras), starePort(other.starePort) {}
 
@@ -33,19 +33,11 @@ bool operator==(const Port& port, const Port& port2) {
 }
 
 void Port::deschiderePort() {
-    this->starePort = this->STARE_PORT_IN_OPERARE;
+    this->starePort = 1;
 }
 
 void Port::inchiderePort() {
-    this->starePort = this->STARE_PORT_INCHIS;
-}
-
-int Port::getStarePortInchis() const {
-    return STARE_PORT_INCHIS;
-}
-
-int Port::getStarePortInOperare() const {
-    return STARE_PORT_IN_OPERARE;
+    this->starePort = 0;
 }
 
 int Port::getStarePort() const {

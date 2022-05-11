@@ -9,10 +9,10 @@ Nava::Nava(const Port &portCurent, const std::string &denumire, const Tara &pavi
 Nava::Nava(const Nava& other) : portCurent(other.portCurent), denumire(other.denumire), pavilion(other.pavilion), imoNumber(other.imoNumber) {}
 
 void Nava::intrare_port(const Port &port) {
-    if(this->portCurent.getStarePort() == port.getStarePortInchis()) {
+    if(this->portCurent.getStarePort() == 0) {
         std::cout << "Portul de plecare e inchis\n";
     }
-    if(port.getStarePort() == port.getStarePortInOperare()) {
+    if(port.getStarePort() == 1) {
         this->portCurent = port;
     }
     else {
