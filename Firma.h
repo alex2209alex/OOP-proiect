@@ -19,7 +19,7 @@ public:
     explicit Firma(const std::string& nume);
     void cumpara_nava(Nava*);
     friend std::ostream &operator<<(std::ostream &os, const Firma &firma);
-    virtual ~Firma();
+    ~Firma();
 };
 
 #endif //OOP_FIRMA_H
