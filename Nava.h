@@ -19,6 +19,7 @@ public:
     Nava(const Nava&);
     Nava &operator=(const Nava &a);
     void intrare_port(const Port &port);
+    friend bool operator==(Nava nava1, Nava nava2);
     friend std::ostream &operator<<(std::ostream &os, const Nava &nava);
     virtual ~Nava() = default;
 };
