@@ -10,8 +10,9 @@
 class Port {
     Tara tara;
     std::string oras;
-    int starePort; // 1 daca e deschis pentru operare 0 daca e inchis pentru operare
+    char starePort;
 public:
+    enum STAREPORT {DESCHIS = '1', INCHIS = '0'};
     Port();
     Port(const Tara &tara, const std::string &oras);
     Port(const Port &other);
