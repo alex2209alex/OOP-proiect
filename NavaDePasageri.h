@@ -7,15 +7,17 @@
 
 #include <ostream>
 #include "Nava.h"
+#include "TransportMaritim.h"
 
 class NavaDePasageri : public Nava {
     int nrMaximPasageri;
     int nrPasageriCurent;
 public:
-    NavaDePasageri(const Port&, const std::string&, const Tara&, int, int, int);
-    void imbarcare(int);
-    void debarcare(int);
-    NavaDePasageri *clone() override;
+    NavaDePasageri(std::shared_ptr<Port>&, const std::string&, const Tara&, int, int, int);
+    void adauga_pe_nava(int) override;
+    void scoate_de_pe_nava() override;
+    void afiseaza_ce_e_pe_nava() override;
+    std::shared_ptr<Nava> clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaDePasageri &pasageri);
     ~NavaDePasageri() override;
 };

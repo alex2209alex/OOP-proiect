@@ -3,35 +3,39 @@
 //
 
 #include "NavaDePasageri.h"
-
+#include "erori.h"
 #include <iostream>
+#include <math.h>
 
-NavaDePasageri::NavaDePasageri(const Port& portCurent, const std::string& denumire, const Tara& pavilion, const int imoNumber, const int nrMaximPasageri, const int nrPasageriCurent) : Nava(portCurent, denumire, pavilion, imoNumber), nrMaximPasageri(nrMaximPasageri), nrPasageriCurent(nrPasageriCurent) {}
+NavaDePasageri::NavaDePasageri(std::shared_ptr<Port>& portCurent, const std::string& denumire, const Tara& pavilion, const int imoNumber, const int nrMaximPasageri, const int nrPasageriCurent) : Nava(portCurent, denumire, pavilion, imoNumber), nrMaximPasageri(nrMaximPasageri), nrPasageriCurent(nrPasageriCurent) {}
 
-void NavaDePasageri::imbarcare(int pasgeri) {
-    if(this->nrPasageriCurent + pasgeri > this->nrMaximPasageri) {
-        std::cout << "Pasageri de imbarcat + numar curent de pasageri depaseste capacitatea maxima\n";
-        return;
+void NavaDePasageri::adauga_pe_nava(const int pasageri) {
+    if(this->nrPasageriCurent + pasageri > this->nrMaximPasageri) {
+        throw incarcare_peste_capacitate();
     }
-    this->nrPasageriCurent += pasgeri;
+    this->nrPasageriCurent += pasageri;
 }
 
-void NavaDePasageri::debarcare(int pasageri) {
+void NavaDePasageri::scoate_de_pe_nava() {
+    int pasageri = rand() % this->nrPasageriCurent;
     if(this->nrPasageriCurent < pasageri) {
-        std::cout << "Pasageri de debarcat > numar curent de pasageri\n";
-        return;
+        throw cantitate_de_scos_prea_mare();
     }
     this->nrPasageriCurent -= pasageri;
 }
 
-NavaDePasageri *NavaDePasageri::clone() {
-    return new NavaDePasageri(*this);
+std::shared_ptr<Nava> NavaDePasageri::clone() {
+    return std::make_shared<NavaDePasageri>(NavaDePasageri{*this});
 }
 
 std::ostream &operator<<(std::ostream &os, const NavaDePasageri &pasageri) {
     os << static_cast<const Nava &>(pasageri) << " nrMaximPasageri: " << pasageri.nrMaximPasageri
        << " nrPasageriCurent: " << pasageri.nrPasageriCurent << "\n";
     return os;
+}
+
+void NavaDePasageri::afiseaza_ce_e_pe_nava() {
+    std :: cout << "Numar maxim pasageri: " << this->nrMaximPasageri << "\nNumar curent de pasageri: " << this->nrPasageriCurent << "\n";
 }
 
 NavaDePasageri::~NavaDePasageri() = default;

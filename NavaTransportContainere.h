@@ -5,26 +5,20 @@
 #ifndef OOP_NAVATRANSPORTCONTAINERE_H
 #define OOP_NAVATRANSPORTCONTAINERE_H
 
-#include "NavaMarfa.h"
+#include "Nava.h"
 #include "Container.h"
 #include <iostream>
 #include <vector>
 
-/*
- Port portCurent;
-    std::string denumire;
-    Tara pavilion;
-    int imoNumber;
- */
-
-class NavaTransportContainere : public NavaMarfa {
+class NavaTransportContainere : public Nava {
     int capacitateMaxima;
     std::vector<Container> marfuri;
 public:
-    NavaTransportContainere(const Port &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber, int capcitateMaxima);
-    void adauga_container(const Container& container);
-    void descarcare() override;
-    NavaMarfa *clone() override;
+    NavaTransportContainere(std::shared_ptr<Port>&, const std::string &denumire, const Tara &pavilion, int imoNumber, int capcitateMaxima);
+    void scoate_de_pe_nava() override;
+    void adauga_pe_nava(Container) override;
+    void afiseaza_ce_e_pe_nava() override;
+    std::shared_ptr<Nava> clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaTransportContainere &containere);
     ~NavaTransportContainere() override;
 };

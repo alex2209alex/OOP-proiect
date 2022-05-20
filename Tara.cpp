@@ -4,9 +4,15 @@
 
 #include "Tara.h"
 
+int Tara::nrTari = 0;
+
 Tara::Tara() = default;
-Tara::Tara(const std::string &nume, const std::string &continent) : nume(nume), continent(continent) {}
-Tara::Tara(const Tara &other) : nume(other.nume), continent(other.continent) {}
+Tara::Tara(const std::string &nume, const std::string &continent) : nume(nume), continent(continent) {
+    nrTari++;
+}
+Tara::Tara(const Tara &other) : nume(other.nume), continent(other.continent) {
+    nrTari++;
+}
 
 Tara &Tara::operator=(const Tara &a) {
     if(&a != this) {
@@ -25,4 +31,8 @@ bool operator==(const Tara& tara, const Tara& tara2) {
     return tara.nume == tara2.nume && tara.continent == tara2.continent;
 }
 
-Tara::~Tara() = default;
+int Tara::numar_tari() {
+    return nrTari;
+}
+
+Tara::~Tara() { nrTari--; };

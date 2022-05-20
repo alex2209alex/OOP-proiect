@@ -6,16 +6,18 @@
 #define OOP_NAVAPETROLIER_H
 
 #include <ostream>
-#include "NavaMarfa.h"
+#include "Nava.h"
+#include "TransportMaritim.h"
 
-class NavaPetrolier : public NavaMarfa {
+class NavaPetrolier : public Nava {
     int tonajMaxim;
     int tonajCurent;
 public:
-    NavaPetrolier(const Port&, const std::string&, const Tara&, int, int, int);
-    void incarcare(int);
-    void descarcare() override;
-    NavaPetrolier *clone() override;
+    NavaPetrolier(std::shared_ptr<Port>&, const std::string&, const Tara&, int, int, int);
+    void adauga_pe_nava(int) override;
+    void scoate_de_pe_nava() override;
+    void afiseaza_ce_e_pe_nava() override;
+    std::shared_ptr<Nava> clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaPetrolier &petrolier);
     ~NavaPetrolier() override;
 };

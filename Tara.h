@@ -11,7 +11,9 @@
 class Tara {
     std::string nume;
     std::string continent;
+    static int nrTari;
 public:
+    static int numar_tari();
     Tara();
     Tara(const std::string &nume, const std::string &continent);
     Tara(const Tara &other);
