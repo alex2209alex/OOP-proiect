@@ -35,4 +35,4 @@ int Tara::numar_tari() {
     return nrTari;
 }
 
-Tara::~Tara() { nrTari--; };
+Tara::~Tara() { nrTari--; }
