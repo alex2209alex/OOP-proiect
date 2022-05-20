@@ -25,8 +25,8 @@ void TransportMaritim::adauga_elementele() {
     std::shared_ptr<Port> port_constanta = std::make_shared<Port>(Port{ro, "Constanta"});
     std::shared_ptr<Port> port_atena = std::make_shared<Port>(Port{gr, "Atena"});
     std::shared_ptr<Container> masini_new_york = std::make_shared<Container>(Container{"Masini", 100, *port_new_york});
-    std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 10, *port_constanta});
-    std::shared_ptr<Container> mere_atena = std::make_shared<Container>(Container{"Mere", 12, *port_atena});
+    std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 50, *port_constanta});
+    std::shared_ptr<Container> mere_atena = std::make_shared<Container>(Container{"Mere", 51, *port_atena});
     std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{port_constanta, "Transport containere 1", ro, 1, 100});
     std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
     std::shared_ptr<Nava> nava_tr_petrol = std::make_shared<NavaPetrolier>(NavaPetrolier{port_new_york, "Transport petrol 1", ro, 3, 10000, 5000});

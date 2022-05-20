@@ -17,7 +17,7 @@ public:
 class incarcare_peste_capacitate: public std::exception {
 public:
     [[nodiscard]] const char* what() const noexcept override {
-        return "Nava este incarcata in mod gresit";
+        return "Nava este incarcata peste capacitate";
     }
 };
 

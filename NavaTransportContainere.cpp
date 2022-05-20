@@ -4,6 +4,7 @@
 
 #include "NavaTransportContainere.h"
 #include "erori.h"
+#include <numeric>
 NavaTransportContainere::NavaTransportContainere(std::shared_ptr<Port> &portCurent, const std::string &denumire,const Tara &pavilion, const int imoNumber, const int capcitateMaxima) : Nava(portCurent, denumire, pavilion, imoNumber), capacitateMaxima(capcitateMaxima) {}
 
 void NavaTransportContainere::scoate_de_pe_nava() {
@@ -26,11 +27,13 @@ void NavaTransportContainere::scoate_de_pe_nava() {
     }
     this->marfuri.resize(n + 1);
 }
+int functie(int suma, Container &a) {
+    return suma + a.getTonaj();
+}
 void NavaTransportContainere::adauga_pe_nava(const Container container) {
     int suma_tonaj = 0;
-    for(const auto& it : this->marfuri) {
-        suma_tonaj += it.getTonaj();
-    }
+    //folosit https://stackoverflow.com/questions/1030608/summing-struct-members-inside-a-vector
+    suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, functie);
     if(container.getTonaj() + suma_tonaj > this->capacitateMaxima) {
         throw incarcare_peste_capacitate();
     }
