@@ -28,7 +28,7 @@ public:
     virtual void afiseaza_ce_e_pe_nava() = 0;
     virtual void verificare_traseu(std::shared_ptr<Port>, std::shared_ptr<Port>);
     void afiseaza_nava();
-    void intrare_port(std::shared_ptr<Port> &port);
+    void intrare_port(const std::shared_ptr<Port> &port);
     friend std::ostream &operator<<(std::ostream &os, const Nava &nava);
     virtual ~Nava() = default;
 };

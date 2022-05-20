@@ -36,7 +36,7 @@ Nava::Nava(const std::shared_ptr<Port> &portCurent, const std::string &denumire,
     imoNumbers.insert(imoNumber);
 }
 
-void Nava::intrare_port(std::shared_ptr<Port> &port) {
+void Nava::intrare_port(const std::shared_ptr<Port> &port) {
     verificare_traseu(this->portCurent, port);
     this->portCurent = port;
 }
