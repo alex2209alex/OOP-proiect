@@ -223,11 +223,20 @@ void TransportMaritim::variabila_statica_folosire() {
 }
 
 TransportMaritim::TransportMaritim(const TransportMaritim& other) {
+    int nrNave = 0, nrContainere = 0, nrPorturi = 0;
     for(const auto& it : other.flota) {
         flota.push_back(it->clone());
+        nrNave++;
     }
-    containere = other.containere;
-    porturi = other.porturi;
+    for(const auto& it : other.containere) {
+        containere.push_back((it));
+        nrContainere++;
+    }
+    for(const auto& it : other.porturi) {
+        porturi.push_back((it));
+        nrPorturi++;
+    }
+    std::cout << "Au fost copiate " << nrNave << " nave, " << nrContainere << "containere, " << nrPorturi << "porturi\n";
 }
 
 TransportMaritim &TransportMaritim::operator=(const TransportMaritim &a) {
