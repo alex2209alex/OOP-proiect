@@ -24,7 +24,7 @@ public:
     virtual std::shared_ptr<Nava> clone() = 0;
     virtual void scoate_de_pe_nava() = 0;
     virtual void adauga_pe_nava(int);
-    virtual void adauga_pe_nava(Container);
+    virtual void adauga_pe_nava(Container&);
     virtual void afiseaza_ce_e_pe_nava() = 0;
     virtual void verificare_traseu(std::shared_ptr<Port>, std::shared_ptr<Port>);
     void afiseaza_nava();

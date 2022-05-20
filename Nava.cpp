@@ -24,7 +24,7 @@ void Nava::afiseaza_nava() {
 void Nava::adauga_pe_nava(int) {
     throw incarcare_gresita();
 }
-void Nava::adauga_pe_nava(Container) {
+void Nava::adauga_pe_nava(Container&) {
     throw incarcare_gresita();
 }
 
