@@ -224,14 +224,10 @@ void TransportMaritim::variabila_statica_folosire() {
 
 TransportMaritim::TransportMaritim(const TransportMaritim& other) {
     for(const auto& it : other.flota) {
-        flota.push_back((*it).clone());
+        flota.push_back(it->clone());
     }
-    for(const auto& it : other.containere) {
-        containere.push_back((it));
-    }
-    for(const auto& it : other.porturi) {
-        porturi.push_back((it));
-    }
+    containere = other.containere;
+    porturi = other.porturi;
 }
 
 TransportMaritim &TransportMaritim::operator=(const TransportMaritim &a) {
