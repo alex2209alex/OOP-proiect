@@ -27,7 +27,7 @@ void NavaTransportContainere::scoate_de_pe_nava() {
     }
     this->marfuri.resize(n + 1);
 }
-int functie(int suma, Container &a) {
+int functie(int suma, const Container &a) {
     return suma + a.getTonaj();
 }
 void NavaTransportContainere::adauga_pe_nava(const Container container) {
