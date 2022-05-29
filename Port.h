@@ -11,6 +11,7 @@ class Port {
     Tara tara;
     std::string oras;
     char starePort;
+    friend class PortBuilder;
 public:
     enum STAREPORT {DESCHIS = '1', INCHIS = '0'};
     Port();

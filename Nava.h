@@ -31,6 +31,7 @@ public:
     void intrare_port(const std::shared_ptr<Port> &port);
     friend std::ostream &operator<<(std::ostream &os, const Nava &nava);
     virtual ~Nava() = default;
+
 };
 
 

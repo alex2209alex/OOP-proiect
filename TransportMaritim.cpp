@@ -4,6 +4,7 @@
 
 #include "TransportMaritim.h"
 #include "erori.h"
+#include "PortBuilder.h"
 
 TransportMaritim::TransportMaritim() = default;
 
@@ -21,24 +22,42 @@ void TransportMaritim::adauga_elementele() {
     Tara ro{"Romania", "Europa"};
     Tara gr{"Grecia", "Europa"};
     Tara sua{"America", "America de Nord"};
-    std::shared_ptr<Port> port_new_york = std::make_shared<Port>(Port{sua, "New York"});
-    std::shared_ptr<Port> port_constanta = std::make_shared<Port>(Port{ro, "Constanta"});
-    std::shared_ptr<Port> port_atena = std::make_shared<Port>(Port{gr, "Atena"});
-    std::shared_ptr<Container> masini_new_york = std::make_shared<Container>(Container{"Masini", 100, *port_new_york});
-    std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 50, *port_constanta});
-    std::shared_ptr<Container> mere_atena = std::make_shared<Container>(Container{"Mere", 51, *port_atena});
-    std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{port_constanta, "Transport containere 1", ro, 1, 100});
-    std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
-    std::shared_ptr<Nava> nava_tr_petrol = std::make_shared<NavaPetrolier>(NavaPetrolier{port_new_york, "Transport petrol 1", ro, 3, 10000, 5000});
-    this->adauga_container(mere_atena);
-    this->adauga_container(pere_constanta);
-    this->adauga_container(masini_new_york);
-    this->adauga_nava(nava_tr_cont);
-    this->adauga_nava(nava_tr_pasageri);
-    this->adauga_nava(nava_tr_petrol);
-    this->adauga_port(port_constanta);
-    this->adauga_port(port_atena);
-    this->adauga_port(port_new_york);
+    PortBuilder pb;
+    try {
+        std::shared_ptr<Port> port_new_york = std::make_shared<Port>(pb.oras("New York").starePort(Port::DESCHIS).tara(sua).build());
+        std::shared_ptr<Container> masini_new_york = std::make_shared<Container>(Container{"Masini", 100, *port_new_york});
+        std::shared_ptr<Nava> nava_tr_petrol = std::make_shared<NavaPetrolier>(NavaPetrolier{port_new_york, "Transport petrol 1", ro, 3, 10000, 5000});
+        this->adauga_port(port_new_york);
+        this->adauga_container(masini_new_york);
+        this->adauga_nava(nava_tr_petrol);
+    } catch (build_object_invalid& err) {
+        std::cout << err.what() << '\n';
+    }
+    try {
+        std::shared_ptr<Port> port_constanta = std::make_shared<Port>(pb.oras("Constanta").starePort(Port::DESCHIS).tara(ro).build());
+        std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 50, *port_constanta});
+        std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{port_constanta, "Transport containere 1", ro, 1, 100});
+        std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
+        this->adauga_port(port_constanta);
+        this->adauga_container(pere_constanta);
+        this->adauga_nava(nava_tr_cont);
+        this->adauga_nava(nava_tr_pasageri);
+    } catch (build_object_invalid& err) {
+        std::cout << err.what() << '\n';
+    }
+    try {
+        std::shared_ptr<Port> port_atena = std::make_shared<Port>(pb.oras("Atena").starePort(Port::DESCHIS).tara(gr).build());
+        std::shared_ptr<Container> mere_atena = std::make_shared<Container>(Container{"Mere", 51, *port_atena});
+        this->adauga_port(port_atena);
+        this->adauga_container(mere_atena);
+    } catch (build_object_invalid& err) {
+        std::cout << err.what() << '\n';
+    }
+    try {
+        std::shared_ptr<Port> port_gresit = std::make_shared<Port>(pb.oras("Atena").tara(gr).build());
+    } catch (build_object_invalid& err) {
+        std::cout << err.what() << '\n';
+    }
 }
 
 void TransportMaritim::ruleaza() {

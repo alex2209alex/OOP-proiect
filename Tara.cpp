@@ -36,3 +36,11 @@ int Tara::numar_tari() {
 }
 
 Tara::~Tara() { nrTari--; }
+
+const std::string &Tara::getNume() const {
+    return nume;
+}
+
+const std::string &Tara::getContinent() const {
+    return continent;
+}

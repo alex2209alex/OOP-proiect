@@ -18,6 +18,8 @@ public:
     Tara(const std::string &nume, const std::string &continent);
     Tara(const Tara &other);
     Tara& operator=(const Tara& a);
+    const std::string &getNume() const;
+    const std::string &getContinent() const;
     friend std::ostream& operator<<(std::ostream& os, const Tara& tara);
     friend bool operator==(const Tara& tara, const Tara& tara2);
     ~Tara();

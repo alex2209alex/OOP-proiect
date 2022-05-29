@@ -70,4 +70,11 @@ public:
     }
 };
 
+class build_object_invalid : public std::exception {
+public:
+    [[nodiscard]] const char* what() const noexcept override {
+        return "Obiectul construit nu e valid";
+    }
+};
+
 #endif //OOP_ERORI_H
