@@ -38,4 +38,6 @@ void NavaDePasageri::afiseaza_ce_e_pe_nava() {
     std :: cout << "Numar maxim pasageri: " << this->nrMaximPasageri << "\nNumar curent de pasageri: " << this->nrPasageriCurent << "\n";
 }
 
+NavaDePasageri::NavaDePasageri() = default;
+
 NavaDePasageri::~NavaDePasageri() = default;

@@ -63,4 +63,6 @@ void NavaTransportContainere::adauga_pe_nava(Container &container) {
     this->marfuri.push_back(container);
 }
 
+NavaTransportContainere::NavaTransportContainere() = default;
+
 NavaTransportContainere::~NavaTransportContainere() = default;

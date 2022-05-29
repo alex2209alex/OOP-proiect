@@ -10,10 +10,12 @@
 #include <iostream>
 #include <vector>
 
-class NavaTransportContainere : public Nava {
+class NavaTransportContainere : virtual public Nava {
+protected:
     int capacitateMaxima;
     std::vector<Container> marfuri;
 public:
+    NavaTransportContainere();
     NavaTransportContainere(std::shared_ptr<Port>&, const std::string &denumire, const Tara &pavilion, int imoNumber, int capcitateMaxima);
     void scoate_de_pe_nava() override;
     void adauga_pe_nava(Container&) override;

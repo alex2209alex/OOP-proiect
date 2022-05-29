@@ -38,10 +38,12 @@ void TransportMaritim::adauga_elementele() {
         std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 50, *port_constanta});
         std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{port_constanta, "Transport containere 1", ro, 1, 100});
         std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
+        std::shared_ptr<Nava> nava_tr_pasageri_si_cont = std::make_shared<NavaDePasageriSiTransportContainere>(NavaDePasageriSiTransportContainere{port_constanta, "Transport pasageri 1", ro, 4, 1000, 1000, 100});
         this->adauga_port(port_constanta);
         this->adauga_container(pere_constanta);
         this->adauga_nava(nava_tr_cont);
         this->adauga_nava(nava_tr_pasageri);
+        this->adauga_nava(nava_tr_pasageri_si_cont);
     } catch (build_object_invalid& err) {
         std::cout << err.what() << '\n';
     }

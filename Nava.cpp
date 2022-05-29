@@ -52,3 +52,5 @@ void Nava::verificare_traseu(std::shared_ptr<Port> port1, std::shared_ptr<Port> 
         throw port_identic();
     }
 }
+
+Nava::Nava() = default;

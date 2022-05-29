@@ -5,6 +5,7 @@
 #ifndef OOP_TRANSPORTMARITIM_H
 #define OOP_TRANSPORTMARITIM_H
 
+#include "NavaDePasageriSiTransportContainere.h"
 #include "NavaTransportContainere.h"
 #include "NavaPetrolier.h"
 #include "NavaDePasageri.h"

@@ -7,12 +7,13 @@
 
 #include <ostream>
 #include "Nava.h"
-#include "TransportMaritim.h"
 
-class NavaDePasageri : public Nava {
+class NavaDePasageri : virtual public Nava {
+protected:
     int nrMaximPasageri;
     int nrPasageriCurent;
 public:
+    NavaDePasageri();
     NavaDePasageri(std::shared_ptr<Port>&, const std::string&, const Tara&, int, int, int);
     void adauga_pe_nava(int) override;
     void scoate_de_pe_nava() override;

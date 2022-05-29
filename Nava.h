@@ -21,6 +21,9 @@ protected:
 public:
     Nava(const std::shared_ptr<Port> &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber);
     Nava(const Nava&);
+
+    Nava();
+
     virtual std::shared_ptr<Nava> clone() = 0;
     virtual void scoate_de_pe_nava() = 0;
     virtual void adauga_pe_nava(int);
