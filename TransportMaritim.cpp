@@ -5,6 +5,7 @@
 #include "TransportMaritim.h"
 #include "erori.h"
 #include "PortBuilder.h"
+#include "FunctiiAfisatColectiiSTL.cpp"
 
 TransportMaritim::TransportMaritim() = default;
 
@@ -31,21 +32,21 @@ void TransportMaritim::adauga_elementele() {
         this->adauga_container(masini_new_york);
         this->adauga_nava(nava_tr_petrol);
     } catch (build_object_invalid& err) {
-        std::cout << err.what() << '\n';
+        std::cout << err.what() << "\n";
     }
     try {
         std::shared_ptr<Port> port_constanta = std::make_shared<Port>(pb.oras("Constanta").starePort(Port::DESCHIS).tara(ro).build());
         std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 50, *port_constanta});
         std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{port_constanta, "Transport containere 1", ro, 1, 100});
         std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
-        std::shared_ptr<Nava> nava_tr_pasageri_si_cont = std::make_shared<NavaDePasageriSiTransportContainere>(NavaDePasageriSiTransportContainere{port_constanta, "Transport pasageri 1", ro, 4, 1000, 1000, 100});
+        std::shared_ptr<Nava> nava_tr_pasageri_si_cont = std::make_shared<NavaDePasageriSiTransportContainere>(NavaDePasageriSiTransportContainere{port_constanta, "Transport pasageri si containere 1", ro, 4, 1000, 1000, 100});
         this->adauga_port(port_constanta);
         this->adauga_container(pere_constanta);
         this->adauga_nava(nava_tr_cont);
         this->adauga_nava(nava_tr_pasageri);
         this->adauga_nava(nava_tr_pasageri_si_cont);
     } catch (build_object_invalid& err) {
-        std::cout << err.what() << '\n';
+        std::cout << err.what() << "\n";
     }
     try {
         std::shared_ptr<Port> port_atena = std::make_shared<Port>(pb.oras("Atena").starePort(Port::DESCHIS).tara(gr).build());
@@ -53,12 +54,12 @@ void TransportMaritim::adauga_elementele() {
         this->adauga_port(port_atena);
         this->adauga_container(mere_atena);
     } catch (build_object_invalid& err) {
-        std::cout << err.what() << '\n';
+        std::cout << err.what() << "\n";
     }
     try {
         std::shared_ptr<Port> port_gresit = std::make_shared<Port>(pb.oras("Atena").tara(gr).build());
     } catch (build_object_invalid& err) {
-        std::cout << err.what() << '\n';
+        std::cout << err.what() << "\n";
     }
 }
 
@@ -66,10 +67,7 @@ void TransportMaritim::ruleaza() {
     std::cout << "//////////////////////////////\n";
     std::cout << "Stare initiala a navelor:\n";
     std::cout << "//////////////////////////////\n";
-    for(const auto& it : this->flota) {
-        (*it).afiseaza_nava();
-        std::cout << "\n";
-    }
+    std::cout << flota << "\n";
     std::cout << "//////////////////////////////\n";
     std::cout << "Incercare de a incarca navele:\n";
     std::cout << "//////////////////////////////\n";
@@ -95,12 +93,7 @@ void TransportMaritim::ruleaza() {
     std::cout << "//////////////////////////////\n";
     std::cout << "Stare a navelor dupa incarcare:\n";
     std::cout << "//////////////////////////////\n";
-
-    for(const auto& it : this->flota) {
-        (*it).afiseaza_nava();
-        std::cout << "\n";
-    }
-
+    std::cout << flota << "\n";
     std::cout << "//////////////////////////////\n";
     std::cout << "Modificam starea porturilor:\n";
     std::cout << "//////////////////////////////\n";
@@ -109,9 +102,7 @@ void TransportMaritim::ruleaza() {
     std::cout << "Starea initiala a porturilor:\n";
     std::cout << "//////////////////////////////\n";
 
-    for(auto it : this->porturi) {
-        std::cout << (*it) << '\n';
-    }
+    std::cout << porturi << "\n";
 
     for(const auto& it : this->porturi) {
         int r = rand() % 2;
@@ -126,9 +117,7 @@ void TransportMaritim::ruleaza() {
     std::cout << "Starea finala a porturilor:\n";
     std::cout << "//////////////////////////////\n";
 
-    for(const auto& it : this->porturi) {
-        std::cout << (*it) << '\n';
-    }
+    std::cout << porturi << "\n";
 
     std::cout << "//////////////////////////////\n";
     std::cout << "Incercam sa mutam navele:\n";
@@ -140,11 +129,11 @@ void TransportMaritim::ruleaza() {
             (*it).intrare_port(this->porturi[r]);
             std::cout << "Nava s-a mutat\n";
         } catch(port_sursa_inchis& err) {
-            std::cout << err.what() << '\n';
+            std::cout << err.what() << "\n";
         } catch(port_destinatie_inchis& err) {
-            std::cout << err.what() << '\n';
+            std::cout << err.what() << "\n";
         } catch(port_identic& err) {
-            std::cout << err.what() << '\n';
+            std::cout << err.what() << "\n";
         }
     }
 
@@ -152,10 +141,7 @@ void TransportMaritim::ruleaza() {
     std::cout << "Stare a navelor dupa mutare:\n";
     std::cout << "//////////////////////////////\n";
 
-    for(const auto& it : this->flota) {
-        (*it).afiseaza_nava();
-        std::cout << "\n";
-    }
+    std::cout << flota << "\n";
 
     std::cout << "//////////////////////////////\n";
     std::cout << "Incercare de a descarca navele:\n";
@@ -176,10 +162,8 @@ void TransportMaritim::ruleaza() {
     std::cout << "//////////////////////////////\n";
     std::cout << "Stare finala a navelor:\n";
     std::cout << "//////////////////////////////\n";
-    for(const auto& it : this->flota) {
-        (*it).afiseaza_nava();
-        std::cout << "\n";
-    }
+
+    std::cout << flota << "\n";
 }
 
 void TransportMaritim::dynamic_cast_folosire() {
