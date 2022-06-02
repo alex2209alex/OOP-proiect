@@ -16,6 +16,11 @@ void NavaDePasageri::adauga_pe_nava(const int pasageri) {
     this->nrPasageriCurent += pasageri;
 }
 
+void NavaDePasageri::evacuare() {
+    nrPasageriCurent = 0;
+    std::cout << "Nava a fost evacuata\n";
+}
+
 void NavaDePasageri::scoate_de_pe_nava() {
     int pasageri = rand() % this->nrPasageriCurent;
     if(this->nrPasageriCurent < pasageri) {

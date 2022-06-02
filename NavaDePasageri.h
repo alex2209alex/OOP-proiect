@@ -16,6 +16,7 @@ public:
     NavaDePasageri();
     NavaDePasageri(std::shared_ptr<Port>&, const std::string&, const TaraTemplate<int>&, int, int, int);
     void adauga_pe_nava(int) override;
+    void evacuare();
     void scoate_de_pe_nava() override;
     void afiseaza_ce_e_pe_nava() override;
     std::shared_ptr<Nava> clone() override;

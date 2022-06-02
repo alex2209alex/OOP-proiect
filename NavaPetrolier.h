@@ -17,6 +17,7 @@ public:
     void adauga_pe_nava(int) override;
     void scoate_de_pe_nava() override;
     void afiseaza_ce_e_pe_nava() override;
+    void umple();
     std::shared_ptr<Nava> clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaPetrolier &petrolier);
     ~NavaPetrolier() override;

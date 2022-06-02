@@ -177,22 +177,19 @@ void TransportMaritim::dynamic_cast_folosire() {
     tempNava->scoate_de_pe_nava();
     (*tempNava).afiseaza_nava();
     if(auto* tempNava2 = dynamic_cast<NavaDePasageri *>(tempNava)) {
-        tempNava2->scoate_de_pe_nava();
-        (*tempNava2).afiseaza_nava();
+        (*tempNava2).evacuare();
     }
     else {
         std::cout << "Conversie nereusita\n";
     }
     if(auto* tempNava2 = dynamic_cast<NavaPetrolier *>(tempNava)) {
-        tempNava2->scoate_de_pe_nava();
-        (*tempNava2).afiseaza_ce_e_pe_nava();
+        (*tempNava2).umple();
     }
     else {
         std::cout << "Conversie nereusita\n";
     }
     if(auto* tempNava2 = dynamic_cast<NavaTransportContainere *>(tempNava)) {
-        tempNava2->scoate_de_pe_nava();
-        (*tempNava2).afiseaza_ce_e_pe_nava();
+        tempNava2->afiseazaSpatiuRamas();
     }
     else {
         std::cout << "Conversie nereusita\n";

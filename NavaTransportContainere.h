@@ -20,6 +20,7 @@ public:
     void scoate_de_pe_nava() override;
     void adauga_pe_nava(Container&) override;
     void afiseaza_ce_e_pe_nava() override;
+    void afiseazaSpatiuRamas();
     std::shared_ptr<Nava> clone() override;
     friend std::ostream &operator<<(std::ostream &os, const NavaTransportContainere &containere);
     ~NavaTransportContainere() override;

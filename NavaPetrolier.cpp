@@ -14,6 +14,11 @@ void NavaPetrolier::adauga_pe_nava(const int tonaj) {
     this->tonajCurent += tonaj;
 }
 
+void NavaPetrolier::umple() {
+    tonajCurent = tonajMaxim;
+    std::cout << "Nava a fost umpluta cu petrol\n";
+}
+
 void NavaPetrolier::scoate_de_pe_nava() {
     if(this->tonajCurent == 0) {
         throw nimic_de_scos();
