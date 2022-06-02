@@ -28,6 +28,10 @@ void NavaTransportContainere::scoate_de_pe_nava() {
     this->marfuri.resize(n + 1);
 }
 
+int functie(int suma, const Container &a) {
+    return suma + a.getTonaj();
+}
+
 void NavaTransportContainere::afiseazaSpatiuRamas() {
     int suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, functie);
     std::cout << "Mai sunt " << capacitateMaxima - suma_tonaj << "tone disponibile";
@@ -52,10 +56,6 @@ void NavaTransportContainere::afiseaza_ce_e_pe_nava() {
     for(auto &it : this->marfuri) {
         std::cout << it;
     }
-}
-
-int functie(int suma, const Container &a) {
-    return suma + a.getTonaj();
 }
 
 void NavaTransportContainere::adauga_pe_nava(Container &container) {
