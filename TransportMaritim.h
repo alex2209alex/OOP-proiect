@@ -17,7 +17,7 @@ class TransportMaritim {
     std::vector<std::shared_ptr<Port> > porturi;
 public:
     TransportMaritim();
-    TransportMaritim& operator=(TransportMaritim obj);
+    TransportMaritim& operator=(const TransportMaritim &obj);
     TransportMaritim(const TransportMaritim&);
     void dynamic_cast_folosire();
     void adauga_elementele();

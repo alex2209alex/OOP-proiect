@@ -9,8 +9,11 @@
 
 class PortBuilder {
     Port p;
+    static int nrPorturi;
 public:
     PortBuilder();
+    static int getNextPortId();
+    static void resetIdCount();
     PortBuilder& tara(const TaraTemplate<std::string>& tara);
     PortBuilder& oras(const std::string& oras);
     PortBuilder& starePort(char starePort);

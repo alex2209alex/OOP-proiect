@@ -5,6 +5,8 @@
 #include "PortBuilder.h"
 #include "erori.h"
 
+int PortBuilder::nrPorturi = 0;
+
 PortBuilder::PortBuilder() = default;
 
 PortBuilder &PortBuilder::tara(const TaraTemplate<std::string> &tara) {
@@ -33,5 +35,16 @@ Port PortBuilder::build() {
     p.tara = TaraTemplate<std::string>();
     p.starePort = 's';
     p.oras = "";
+    nrPorturi++;
+    p2.idPort = nrPorturi;
     return p2;
+}
+
+void PortBuilder::resetIdCount() {
+    nrPorturi = 0;
+}
+
+int PortBuilder::getNextPortId() {
+    nrPorturi++;
+    return nrPorturi;
 }

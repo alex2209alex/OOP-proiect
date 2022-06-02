@@ -5,20 +5,14 @@
 #include "TaraTemplate.h"
 #include <utility>
 
-template<typename T> int TaraTemplate<T>::nrTari = 0;
-
 template <typename T>
 TaraTemplate<T>::TaraTemplate() = default;
 
 template <typename T>
-TaraTemplate<T>::TaraTemplate(std::string nume, std::string continent, const T& x) : identificator(x), nume(std::move(nume)), continent(std::move(continent)) {
-    nrTari++;
-}
+TaraTemplate<T>::TaraTemplate(std::string nume, std::string continent, const T& x) : identificator(x), nume(std::move(nume)), continent(std::move(continent)) {}
 
 template <typename T>
-TaraTemplate<T>::TaraTemplate(const TaraTemplate &other) : identificator(other.identificator), nume(other.nume), continent(other.continent) {
-    nrTari++;
-}
+TaraTemplate<T>::TaraTemplate(const TaraTemplate &other) : identificator(other.identificator), nume(other.nume), continent(other.continent) {}
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const TaraTemplate<T>& tara) {
@@ -54,11 +48,6 @@ TaraTemplate<T>& TaraTemplate<T>::operator=(const TaraTemplate &a) {
         identificator = a.identificator;
     }
     return *this;
-}
-
-template<typename T>
-int TaraTemplate<T>::numar_tari() {
-    return nrTari;
 }
 
 template<typename T>

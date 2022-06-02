@@ -20,12 +20,13 @@ void TransportMaritim::adauga_port(const std::shared_ptr<Port> &port) {
 }
 
 void TransportMaritim::adauga_elementele() {
+    PortBuilder::resetIdCount();
     TaraTemplate<int> ro{"Romania", "Europa", 1};
     TaraTemplate<int> gr{"Romania", "Europa", 2};
     TaraTemplate<int> sua{"Romania", "Europa", 3};
     TaraTemplate<std::string> ro2{"Romania", "Europa", "ROU"};
-    TaraTemplate<std::string> gr2{"Romania", "Europa", "GRE"};
-    TaraTemplate<std::string> sua2{"Romania", "Europa", "USA"};
+    TaraTemplate<std::string> gr2{"Grecia", "Europa", "GRE"};
+    TaraTemplate<std::string> sua2{"Statele Unite ale Americii", "America de nord", "USA"};
     PortBuilder pb;
     try {
         std::shared_ptr<Port> port_new_york = std::make_shared<Port>(pb.oras("New York").starePort(Port::DESCHIS).tara(sua2).build());
@@ -250,7 +251,7 @@ void swap(TransportMaritim &obj1, TransportMaritim &obj2) {
     std::swap(obj1.porturi, obj2.porturi);
 }
 
-TransportMaritim &TransportMaritim::operator=(TransportMaritim obj) {
+TransportMaritim &TransportMaritim::operator=(const TransportMaritim &obj) {
     TransportMaritim temp(obj);
     swap(*this, temp);
     return *this;

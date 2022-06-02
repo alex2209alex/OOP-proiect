@@ -3,8 +3,6 @@
 #include <iostream>
 
 int main() {
-    //functie statica
-    std::cout << "\n---------------------\n" << "Numarul de tari al navelor este: " << TaraTemplate<int>::numar_tari() << "\n---------------------\n";
     TransportMaritim transportMaritim;
     transportMaritim.adauga_elementele();
     TransportMaritim transportMaritim1{transportMaritim};//pt constructor de copiere

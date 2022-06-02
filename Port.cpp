@@ -3,6 +3,7 @@
 //
 
 #include "Port.h"
+#include "PortBuilder.h"
 #include <utility>
 
 Port::Port() {
@@ -10,6 +11,7 @@ Port::Port() {
 }
 Port::Port(const TaraTemplate<std::string> &tara, std::string oras) : tara(tara), oras(std::move(oras)) {
     this->starePort = DESCHIS;
+    idPort = PortBuilder::getNextPortId();
 }
 Port::Port(const Port &other) = default;
 
@@ -23,7 +25,7 @@ Port &Port::operator=(const Port &a) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Port& port) {
-    os << "Port: {" << port.tara << "Oras: " << port.oras << " Stare Port:" << port.starePort <<"}\n";
+    os << "Port: { " << "Id port: " << port.idPort << " " << port.tara << "Oras: " << port.oras << " Stare Port:" << port.starePort <<"}\n";
     return os;
 }
 

@@ -22,12 +22,10 @@ class TaraTemplate {
     T identificator;
     std::string nume;
     std::string continent;
-    static int nrTari;
 public:
     TaraTemplate();
     TaraTemplate(std::string nume, std::string continent, const T& x);
     TaraTemplate(const TaraTemplate &other);
-    static int numar_tari();
     friend std::ostream& operator<< <>(std::ostream&, const TaraTemplate<T>&);
     TaraTemplate& operator=(const TaraTemplate& a);
     [[nodiscard]] const std::string &getNume() const;
