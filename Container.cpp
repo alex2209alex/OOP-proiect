@@ -22,12 +22,7 @@ int Container::getTonaj() const {
     return tonaj;
 }
 
-
 Container::Container(const Container &other) = default;
-
-const Container* Container::clone() const {
-    return new Container(*this);
-}
 
 Container &Container::operator=(const Container &a) {
     tonaj = a.tonaj;

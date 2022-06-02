@@ -13,7 +13,7 @@ void TransportMaritim::adauga_nava(const std::shared_ptr<Nava> &nava) {
     flota.push_back(nava);
 }
 void TransportMaritim::adauga_container(const Container &container) {
-    containere.push_back(*container.clone());
+    containere.push_back(container);
 }
 void TransportMaritim::adauga_port(const std::shared_ptr<Port> &port) {
     porturi.push_back(port);
