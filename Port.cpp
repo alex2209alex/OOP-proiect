@@ -8,6 +8,7 @@
 
 Port::Port() {
     this->starePort = DESCHIS;
+    idPort = 0;
 }
 Port::Port(const TaraTemplate<std::string> &tara, std::string oras) : tara(tara), oras(std::move(oras)) {
     this->starePort = DESCHIS;
