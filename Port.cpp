@@ -20,6 +20,7 @@ Port &Port::operator=(const Port &a) {
         tara = a.tara;
         oras = a.oras;
         starePort = a.starePort;
+        idPort = a.idPort;
     }
     return *this;
 }
