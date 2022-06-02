@@ -3,15 +3,12 @@
 //
 
 #include "TaraTemplate.h"
-
 #include <utility>
 
 template<typename T> int TaraTemplate<T>::nrTari = 0;
 
 template <typename T>
-TaraTemplate<T>::TaraTemplate() {
-    nrTari++;
-}
+TaraTemplate<T>::TaraTemplate() = default;
 
 template <typename T>
 TaraTemplate<T>::TaraTemplate(std::string nume, std::string continent, const T& x) : identificator(x), nume(std::move(nume)), continent(std::move(continent)) {
