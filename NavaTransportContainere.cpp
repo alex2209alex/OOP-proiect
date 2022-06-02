@@ -28,12 +28,12 @@ void NavaTransportContainere::scoate_de_pe_nava() {
     this->marfuri.resize(n + 1);
 }
 
-int functie(int suma, const Container &a) {
+int operatieCalculareTonaj(int suma, const Container &a) {
     return suma + a.getTonaj();
 }
 
 void NavaTransportContainere::afiseazaSpatiuRamas() {
-    int suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, functie);
+    int suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, operatieCalculareTonaj);
     std::cout << "Mai sunt " << capacitateMaxima - suma_tonaj << "tone disponibile";
 }
 
@@ -60,7 +60,7 @@ void NavaTransportContainere::afiseaza_ce_e_pe_nava() {
 
 void NavaTransportContainere::adauga_pe_nava(Container &container) {
     //folosit https://stackoverflow.com/questions/1030608/summing-struct-members-inside-a-vector
-    int suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, functie);
+    int suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, operatieCalculareTonaj);
     if(container.getTonaj() + suma_tonaj > this->capacitateMaxima) {
         throw incarcare_peste_capacitate();
     }

@@ -19,14 +19,14 @@ void NavaDePasageriSiTransportContainere::adauga_pe_nava(const int pasageri) {
     this->nrPasageriCurent += pasageri;
 }
 
-int functie2(int suma, const Container &a) {
+int operatieCalculareTonajNavaCuPasageri(int suma, const Container &a) {
     return suma + a.getTonaj();
 }
 
 void NavaDePasageriSiTransportContainere::adauga_pe_nava(Container &container) {
     int suma_tonaj = 0;
     //folosit https://stackoverflow.com/questions/1030608/summing-struct-members-inside-a-vector
-    suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, functie2);
+    suma_tonaj = accumulate(this->marfuri.begin(), this->marfuri.end(), 0, operatieCalculareTonajNavaCuPasageri);
     if(container.getTonaj() + suma_tonaj > this->capacitateMaxima) {
         throw incarcare_peste_capacitate();
     }
