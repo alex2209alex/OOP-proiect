@@ -244,12 +244,15 @@ TransportMaritim::TransportMaritim(const TransportMaritim& other) {
     std::cout << "Au fost copiate " << nrNave << " nave, " << nrContainere << "containere, " << nrPorturi << "porturi\n";
 }
 
-TransportMaritim &TransportMaritim::operator=(const TransportMaritim &a) {
-    if(&a != this) {
-        flota = a.flota;
-        porturi = a.porturi;
-        containere = a.containere;
-    }
+void swap(TransportMaritim &obj1, TransportMaritim &obj2) {
+    std::swap(obj1.flota, obj2.flota);
+    std::swap(obj1.containere, obj2.containere);
+    std::swap(obj1.porturi, obj2.porturi);
+}
+
+TransportMaritim &TransportMaritim::operator=(TransportMaritim obj) {
+    TransportMaritim temp(obj);
+    swap(*this, temp);
     return *this;
 }
 

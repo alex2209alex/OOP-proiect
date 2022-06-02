@@ -17,11 +17,12 @@ class TransportMaritim {
     std::vector<std::shared_ptr<Port> > porturi;
 public:
     TransportMaritim();
-    TransportMaritim& operator=(const TransportMaritim& a);
+    TransportMaritim& operator=(TransportMaritim obj);
     TransportMaritim(const TransportMaritim&);
     void dynamic_cast_folosire();
     void adauga_elementele();
     void adauga_nava(const std::shared_ptr<Nava> &nava);
+    friend void swap(TransportMaritim& obj1, TransportMaritim& obj2);
     void adauga_container(const Container &container);
     void adauga_port(const std::shared_ptr<Port> &port);
     void variabila_statica_folosire();
