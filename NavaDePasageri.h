@@ -10,11 +10,11 @@
 
 class NavaDePasageri : virtual public Nava {
 protected:
-    int nrMaximPasageri;
-    int nrPasageriCurent;
+    int nrMaximPasageri{};
+    int nrPasageriCurent{};
 public:
     NavaDePasageri();
-    NavaDePasageri(std::shared_ptr<Port>&, const std::string&, const Tara&, int, int, int);
+    NavaDePasageri(std::shared_ptr<Port>&, const std::string&, const TaraTemplate<int>&, int, int, int);
     void adauga_pe_nava(int) override;
     void scoate_de_pe_nava() override;
     void afiseaza_ce_e_pe_nava() override;
@@ -22,6 +22,5 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const NavaDePasageri &pasageri);
     ~NavaDePasageri() override;
 };
-
 
 #endif //OOP_NAVADEPASAGERI_H

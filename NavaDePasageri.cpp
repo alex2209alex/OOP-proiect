@@ -5,9 +5,9 @@
 #include "NavaDePasageri.h"
 #include "erori.h"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
-NavaDePasageri::NavaDePasageri(std::shared_ptr<Port>& portCurent, const std::string& denumire, const Tara& pavilion, const int imoNumber, const int nrMaximPasageri, const int nrPasageriCurent) : Nava(portCurent, denumire, pavilion, imoNumber), nrMaximPasageri(nrMaximPasageri), nrPasageriCurent(nrPasageriCurent) {}
+NavaDePasageri::NavaDePasageri(std::shared_ptr<Port>& portCurent, const std::string& denumire, const TaraTemplate<int>& pavilion, const int imoNumber, const int nrMaximPasageri, const int nrPasageriCurent) : Nava(portCurent, denumire, pavilion, imoNumber), nrMaximPasageri(nrMaximPasageri), nrPasageriCurent(nrPasageriCurent) {}
 
 void NavaDePasageri::adauga_pe_nava(const int pasageri) {
     if(this->nrPasageriCurent + pasageri > this->nrMaximPasageri) {

@@ -9,23 +9,26 @@
 
 TransportMaritim::TransportMaritim() = default;
 
-void TransportMaritim::adauga_nava(std::shared_ptr<Nava> nava) {
+void TransportMaritim::adauga_nava(const std::shared_ptr<Nava> &nava) {
     flota.push_back(nava);
 }
-void TransportMaritim::adauga_container(std::shared_ptr<Container> container) {
+void TransportMaritim::adauga_container(const std::shared_ptr<Container> &container) {
     containere.push_back(container);
 }
-void TransportMaritim::adauga_port(std::shared_ptr<Port> port) {
+void TransportMaritim::adauga_port(const std::shared_ptr<Port> &port) {
     porturi.push_back(port);
 }
 
 void TransportMaritim::adauga_elementele() {
-    Tara ro{"Romania", "Europa"};
-    Tara gr{"Grecia", "Europa"};
-    Tara sua{"America", "America de Nord"};
+    TaraTemplate<int> ro{"Romania", "Europa", 1};
+    TaraTemplate<int> gr{"Romania", "Europa", 2};
+    TaraTemplate<int> sua{"Romania", "Europa", 3};
+    TaraTemplate<std::string> ro2{"Romania", "Europa", "ROU"};
+    TaraTemplate<std::string> gr2{"Romania", "Europa", "GRE"};
+    TaraTemplate<std::string> sua2{"Romania", "Europa", "USA"};
     PortBuilder pb;
     try {
-        std::shared_ptr<Port> port_new_york = std::make_shared<Port>(pb.oras("New York").starePort(Port::DESCHIS).tara(sua).build());
+        std::shared_ptr<Port> port_new_york = std::make_shared<Port>(pb.oras("New York").starePort(Port::DESCHIS).tara(sua2).build());
         std::shared_ptr<Container> masini_new_york = std::make_shared<Container>(Container{"Masini", 100, *port_new_york});
         std::shared_ptr<Nava> nava_tr_petrol = std::make_shared<NavaPetrolier>(NavaPetrolier{port_new_york, "Transport petrol 1", ro, 3, 10000, 5000});
         this->adauga_port(port_new_york);
@@ -35,7 +38,7 @@ void TransportMaritim::adauga_elementele() {
         std::cout << err.what() << "\n";
     }
     try {
-        std::shared_ptr<Port> port_constanta = std::make_shared<Port>(pb.oras("Constanta").starePort(Port::DESCHIS).tara(ro).build());
+        std::shared_ptr<Port> port_constanta = std::make_shared<Port>(pb.oras("Constanta").starePort(Port::DESCHIS).tara(ro2).build());
         std::shared_ptr<Container> pere_constanta = std::make_shared<Container>(Container{"Pere", 50, *port_constanta});
         std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{port_constanta, "Transport containere 1", ro, 1, 100});
         std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
@@ -49,7 +52,7 @@ void TransportMaritim::adauga_elementele() {
         std::cout << err.what() << "\n";
     }
     try {
-        std::shared_ptr<Port> port_atena = std::make_shared<Port>(pb.oras("Atena").starePort(Port::DESCHIS).tara(gr).build());
+        std::shared_ptr<Port> port_atena = std::make_shared<Port>(pb.oras("Atena").starePort(Port::DESCHIS).tara(gr2).build());
         std::shared_ptr<Container> mere_atena = std::make_shared<Container>(Container{"Mere", 51, *port_atena});
         this->adauga_port(port_atena);
         this->adauga_container(mere_atena);
@@ -57,7 +60,7 @@ void TransportMaritim::adauga_elementele() {
         std::cout << err.what() << "\n";
     }
     try {
-        std::shared_ptr<Port> port_gresit = std::make_shared<Port>(pb.oras("Atena").tara(gr).build());
+        std::shared_ptr<Port> port_gresit = std::make_shared<Port>(pb.oras("Atena").tara(gr2).build());
     } catch (build_object_invalid& err) {
         std::cout << err.what() << "\n";
     }
@@ -170,7 +173,7 @@ void TransportMaritim::dynamic_cast_folosire() {
     std::cout << "------------------------------\n";
     std::cout << "Dynamic cast";
     std::cout << "\n------------------------------\n";
-    Nava *tempNava = new NavaDePasageri{this->porturi[1], "Transport pasageri temp", Tara{"Romania", "Europa"}, 0, 1000, 100};
+    Nava *tempNava = new NavaDePasageri{this->porturi[1], "Transport pasageri temp", TaraTemplate<int>{"Romania", "Europa", 1}, 0, 1000, 100};
     tempNava->scoate_de_pe_nava();
     (*tempNava).afiseaza_nava();
     if(auto* tempNava2 = dynamic_cast<NavaDePasageri *>(tempNava)) {
@@ -205,7 +208,7 @@ void TransportMaritim::variabila_statica_folosire() {
     std::cout << "Inceput variabila statica";
     std::cout << "\n------------------------------\n";
     try {
-        std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{porturi[1], "Transport containere 2", Tara{"Rusia", "Europa"}, 1, 100});
+        std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{porturi[1], "Transport containere 2", TaraTemplate<int>{"Rusia", "Europa", 4}, 1, 100});
         flota.push_back(nava_tr_cont);
         std::cout << "Identificatorul e unic\n";
     }
@@ -214,7 +217,7 @@ void TransportMaritim::variabila_statica_folosire() {
         std::cout << "\n";
     }
     try {
-        std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{porturi[1], "Transport containere 2", Tara{"Rusia", "Europa"}, 4, 100});
+        std::shared_ptr<Nava> nava_tr_cont = std::make_shared<NavaTransportContainere>(NavaTransportContainere{porturi[1], "Transport containere 2", TaraTemplate{"Rusia", "Europa", 4}, 4, 100});
         flota.push_back(nava_tr_cont);
         std::cout << "Identificatorul e unic\n";
     }

@@ -3,7 +3,7 @@
 
 int main() {
     //functie statica
-    std::cout << "\n---------------------\n" << "Numarul de tari este: " << Tara::numar_tari() << "\n---------------------\n";
+    std::cout << "\n---------------------\n" << "Numarul de tari al navelor este: " << TaraTemplate<int>::numar_tari() << "\n---------------------\n";
     TransportMaritim transportMaritim;
     transportMaritim.adauga_elementele();
     TransportMaritim transportMaritim1{transportMaritim};//pt constructor de copiere
@@ -24,7 +24,6 @@ int main() {
     std::swap(transportMaritim1, transportMaritim2);
     transportMaritim1.ruleaza();
     transportMaritim2.ruleaza();
-    std::cout << "\n---------------------\n" << "Numarul de tari este: " << Tara::numar_tari() << "\n---------------------\n";
     return 0;
 }
 

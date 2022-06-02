@@ -11,7 +11,7 @@
 
 class NavaDePasageriSiTransportContainere : public NavaTransportContainere, public NavaDePasageri {
 public:
-    NavaDePasageriSiTransportContainere(std::shared_ptr<Port>&, const std::string&, const Tara&, int, int, int, int);
+    NavaDePasageriSiTransportContainere(std::shared_ptr<Port>&, const std::string&, const TaraTemplate<int>&, int, int, int, int);
     void adauga_pe_nava(int) override;
     void adauga_pe_nava(Container&) override;
     void scoate_de_pe_nava() override;
@@ -20,6 +20,5 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const NavaDePasageriSiTransportContainere &pasageriSiTransportContainere);
     ~NavaDePasageriSiTransportContainere() override;
 };
-
 
 #endif //OOP_NAVADEPASAGERISITRANSPORTCONTAINERE_H

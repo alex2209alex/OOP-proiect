@@ -4,11 +4,12 @@
 
 #include "Nava.h"
 #include <iostream>
+#include <utility>
 #include "erori.h"
 
 std::unordered_set<int> Nava::imoNumbers;
 
-Nava::Nava(const Nava& other) : portCurent(other.portCurent), denumire(other.denumire), pavilion(other.pavilion), imoNumber(other.imoNumber) {}
+Nava::Nava(const Nava& other) = default;
 
 std::ostream &operator<<(std::ostream &os, const Nava &nava) {
     os << "portCurent: " << *nava.portCurent << " denumire: " << nava.denumire << " pavilion: " << nava.pavilion
@@ -28,8 +29,8 @@ void Nava::adauga_pe_nava(Container&) {
     throw incarcare_gresita();
 }
 
-Nava::Nava(const std::shared_ptr<Port> &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber)
-        : portCurent(portCurent), denumire(denumire), pavilion(pavilion), imoNumber(imoNumber) {
+Nava::Nava(std::shared_ptr<Port> portCurent, std::string denumire, const TaraTemplate<int> &pavilion, int imoNumber)
+        : portCurent(std::move(portCurent)), denumire(std::move(denumire)), pavilion(pavilion), imoNumber(imoNumber) {
     if(imoNumbers.find(imoNumber) != imoNumbers.end()) {
         throw identificator_ne_e_unic();
     }
@@ -41,7 +42,7 @@ void Nava::intrare_port(const std::shared_ptr<Port> &port) {
     this->portCurent = port;
 }
 
-void Nava::verificare_traseu(std::shared_ptr<Port> port1, std::shared_ptr<Port> port2) {
+void Nava::verificare_traseu(const std::shared_ptr<Port> &port1, const std::shared_ptr<Port> &port2) {
     if(port1->getStarePort() == Port::INCHIS) {
         throw port_sursa_inchis();
     }

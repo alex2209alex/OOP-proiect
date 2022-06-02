@@ -5,7 +5,7 @@
 #include "NavaTransportContainere.h"
 #include "erori.h"
 #include <numeric>
-NavaTransportContainere::NavaTransportContainere(std::shared_ptr<Port> &portCurent, const std::string &denumire,const Tara &pavilion, const int imoNumber, const int capcitateMaxima) : Nava(portCurent, denumire, pavilion, imoNumber), capacitateMaxima(capcitateMaxima) {}
+NavaTransportContainere::NavaTransportContainere(std::shared_ptr<Port> &portCurent, const std::string &denumire,const TaraTemplate<int> &pavilion, const int imoNumber, const int capcitateMaxima) : Nava(portCurent, denumire, pavilion, imoNumber), capacitateMaxima(capcitateMaxima) {}
 
 void NavaTransportContainere::scoate_de_pe_nava() {
     int n = int(this->marfuri.size() - 1);

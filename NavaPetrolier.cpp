@@ -5,7 +5,7 @@
 #include "NavaPetrolier.h"
 #include "erori.h"
 
-NavaPetrolier::NavaPetrolier(std::shared_ptr<Port>& portCurent, const std::string& denumire, const Tara& pavilion, const int imoNumber, const int tonajMaxim, const int tonajCurent) : Nava(portCurent, denumire, pavilion, imoNumber), tonajMaxim(tonajMaxim), tonajCurent(tonajCurent) {}
+NavaPetrolier::NavaPetrolier(std::shared_ptr<Port>& portCurent, const std::string& denumire, const TaraTemplate<int>& pavilion, const int imoNumber, const int tonajMaxim, const int tonajCurent) : Nava(portCurent, denumire, pavilion, imoNumber), tonajMaxim(tonajMaxim), tonajCurent(tonajCurent) {}
 
 void NavaPetrolier::adauga_pe_nava(const int tonaj) {
     if(this->tonajCurent + tonaj > this->tonajMaxim) {

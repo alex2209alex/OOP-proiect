@@ -21,9 +21,9 @@ public:
     TransportMaritim(const TransportMaritim&);
     void dynamic_cast_folosire();
     void adauga_elementele();
-    void adauga_nava(std::shared_ptr<Nava> nava);
-    void adauga_container(std::shared_ptr<Container> container);
-    void adauga_port(std::shared_ptr<Port> port);
+    void adauga_nava(const std::shared_ptr<Nava> &nava);
+    void adauga_container(const std::shared_ptr<Container> &container);
+    void adauga_port(const std::shared_ptr<Port> &port);
     void variabila_statica_folosire();
     void ruleaza();
     virtual ~TransportMaritim();

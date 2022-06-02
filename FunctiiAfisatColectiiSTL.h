@@ -13,8 +13,3 @@ std::enable_if_t<!std::is_convertible_v<T, std::string>, std::ostream&>
 operator<<(std::ostream& os, const T& obj);
 
 #endif //OOP_FUNCTIIAFISATCOLECTIISTL_H
-
-#include <iostream>
-#include <vector>
-
-

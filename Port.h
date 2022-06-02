@@ -5,17 +5,17 @@
 #ifndef OOP_PORT_H
 #define OOP_PORT_H
 
-#include "Tara.h"
+#include "TaraTemplate.h"
 
 class Port {
-    Tara tara;
+    TaraTemplate<std::string> tara;
     std::string oras;
     char starePort;
     friend class PortBuilder;
 public:
     enum STAREPORT {DESCHIS = '1', INCHIS = '0'};
     Port();
-    Port(const Tara &tara, const std::string &oras);
+    Port(const TaraTemplate<std::string> &tara, std::string oras);
     Port(const Port &other);
     Port& operator=(const Port& a);
     void deschiderePort();
@@ -25,6 +25,5 @@ public:
     [[nodiscard]] int getStarePort() const;
     ~Port();
 };
-
 
 #endif //OOP_PORT_H

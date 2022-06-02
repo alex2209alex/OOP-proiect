@@ -16,7 +16,7 @@ protected:
     std::vector<Container> marfuri;
 public:
     NavaTransportContainere();
-    NavaTransportContainere(std::shared_ptr<Port>&, const std::string &denumire, const Tara &pavilion, int imoNumber, int capcitateMaxima);
+    NavaTransportContainere(std::shared_ptr<Port>&, const std::string &denumire, const TaraTemplate<int> &pavilion, int imoNumber, int capcitateMaxima);
     void scoate_de_pe_nava() override;
     void adauga_pe_nava(Container&) override;
     void afiseaza_ce_e_pe_nava() override;

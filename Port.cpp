@@ -3,14 +3,15 @@
 //
 
 #include "Port.h"
+#include <utility>
 
 Port::Port() {
     this->starePort = DESCHIS;
 }
-Port::Port(const Tara &tara, const std::string &oras) : tara(tara), oras(oras) {
+Port::Port(const TaraTemplate<std::string> &tara, std::string oras) : tara(tara), oras(std::move(oras)) {
     this->starePort = DESCHIS;
 }
-Port::Port(const Port &other) : tara(other.tara), oras(other.oras), starePort(other.starePort) {}
+Port::Port(const Port &other) = default;
 
 Port &Port::operator=(const Port &a) {
     if(&a != this) {

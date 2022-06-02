@@ -6,7 +6,7 @@
 #include "erori.h"
 #include <numeric>
 
-NavaDePasageriSiTransportContainere::NavaDePasageriSiTransportContainere(std::shared_ptr<Port> &portCurent, const std::string &denumire, const Tara &pavilion, int imoNumber, int capacitateMaxima, int nrMaximPasageri, int nrPasageriCurent) : Nava(portCurent, denumire, pavilion, imoNumber) {
+NavaDePasageriSiTransportContainere::NavaDePasageriSiTransportContainere(std::shared_ptr<Port> &portCurent, const std::string &denumire, const TaraTemplate<int> &pavilion, int imoNumber, int capacitateMaxima, int nrMaximPasageri, int nrPasageriCurent) : Nava(portCurent, denumire, pavilion, imoNumber) {
     this->capacitateMaxima = capacitateMaxima;
     this->nrMaximPasageri = nrMaximPasageri;
     this->nrPasageriCurent = nrPasageriCurent;

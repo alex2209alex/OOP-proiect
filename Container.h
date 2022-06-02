@@ -13,16 +13,10 @@ class Container {
     Port destinatie;
 public:
     Container();
-    Container(const std::string &tip, int tonaj, const Port &destinatie);
-
+    Container(std::string tip, int tonaj, const Port &destinatie);
     friend std::ostream& operator<<(std::ostream& os, const Container& container);
-
-    const Port &getDestinatie() const;
-
-    int getTonaj() const;
-
-
+    [[nodiscard]] const Port &getDestinatie() const;
+    [[nodiscard]] int getTonaj() const;
 };
-
 
 #endif //OOP_CONTAINER_H

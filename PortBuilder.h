@@ -11,11 +11,10 @@ class PortBuilder {
     Port p;
 public:
     PortBuilder();
-    PortBuilder& tara(const Tara& tara);
+    PortBuilder& tara(const TaraTemplate<std::string>& tara);
     PortBuilder& oras(const std::string& oras);
-    PortBuilder& starePort(const char starePort);
+    PortBuilder& starePort(char starePort);
     Port build();
 };
-
 
 #endif //OOP_PORTBUILDER_H

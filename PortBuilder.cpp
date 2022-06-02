@@ -7,7 +7,7 @@
 
 PortBuilder::PortBuilder() = default;
 
-PortBuilder &PortBuilder::tara(const Tara &tara) {
+PortBuilder &PortBuilder::tara(const TaraTemplate<std::string> &tara) {
     p.tara = tara;
     return *this;
 }
@@ -30,7 +30,7 @@ Port PortBuilder::build() {
         throw build_object_invalid();
     }
     auto p2 = p;
-    p.tara = Tara();
+    p.tara = TaraTemplate<std::string>();
     p.starePort = 's';
     p.oras = "";
     return p2;

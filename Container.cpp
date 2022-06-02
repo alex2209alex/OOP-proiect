@@ -3,9 +3,11 @@
 //
 
 #include "Container.h"
+#include <utility>
 
 Container::Container() = default;
-Container::Container(const std::string &tip, int tonaj, const Port &destinatie): tip(tip), tonaj(tonaj), destinatie(destinatie) {}
+
+Container::Container(std::string tip, int tonaj, const Port &destinatie): tip(std::move(tip)), tonaj(tonaj), destinatie(destinatie) {}
 
 std::ostream& operator<<(std::ostream& os, const Container& container) {
     os << "Container: {Tip: " << container.tip << " Tonaj: " << container.tonaj << " Destinatie: " << container.destinatie << "}\n";
