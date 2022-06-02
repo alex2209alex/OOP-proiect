@@ -1,0 +1,57 @@
+//Tema 2
+//exceptii
+//clasa companie care are vector de nave si gestioneaza functiile de incarcare descarcare
+//copie and swap in companie
+//in cc companie apelez clone de nava
+
+//Tema 3
+//clasa mai izolata pt template
+//
+
+//functii virtuale cu pointeri la baza
+//exceptii
+//de adaugat noua derivata fara modificare cod 100 locuri
+//asa nu
+/*
+ if(tip == d1){f1()}
+ else if(tip == d2){f2()}
+ else if(tip == d3){f3()}
+ baza b1
+ derivata d1,d2,d3
+
+ daca adaugam d4 trebuie sa fac un alt if
+ */
+
+/* folosire corecta
+try{
+ f()
+ g()
+ h()
+ gata()
+ }
+ catch(err_monitor&){
+
+ }catch(err_app&) {
+
+ }
+ */
+
+/* folosire corecta
+ f1() {
+    try {
+        f2()
+    } catch (err&) {
+
+    }
+ }
+ f2() {
+    f3();
+ }
+ f3() {
+    f4();
+ }
+ f4() {
+    if(ceva)
+        throw err;
+ }
+*/
