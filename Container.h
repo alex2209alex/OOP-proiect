@@ -20,6 +20,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Container& container);
     [[nodiscard]] const Port &getDestinatie() const;
     [[nodiscard]] int getTonaj() const;
+    ~Container();
 };
 
 #endif //OOP_CONTAINER_H

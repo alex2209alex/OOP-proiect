@@ -36,3 +36,5 @@ Container &Container::operator=(const Container &a) {
     return *this;
 }
 
+Container::~Container() = default;
+

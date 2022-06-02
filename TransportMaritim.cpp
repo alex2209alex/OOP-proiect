@@ -32,7 +32,7 @@ void TransportMaritim::adauga_elementele() {
         Container masini_new_york = Container{"Masini", 100, *port_new_york};
         std::shared_ptr<Nava> nava_tr_petrol = std::make_shared<NavaPetrolier>(NavaPetrolier{port_new_york, "Transport petrol 1", ro, 3, 10000, 5000});
         this->adauga_port(port_new_york);
-        this->adauga_container(*masini_new_york.clone());
+        this->adauga_container(masini_new_york);
         this->adauga_nava(nava_tr_petrol->clone());
     } catch (build_object_invalid& err) {
         std::cout << err.what() << "\n";
@@ -44,7 +44,7 @@ void TransportMaritim::adauga_elementele() {
         std::shared_ptr<Nava> nava_tr_pasageri = std::make_shared<NavaDePasageri>(NavaDePasageri{port_constanta, "Transport pasageri 1", ro, 2, 1000, 10});
         std::shared_ptr<Nava> nava_tr_pasageri_si_cont = std::make_shared<NavaDePasageriSiTransportContainere>(NavaDePasageriSiTransportContainere{port_constanta, "Transport pasageri si containere 1", ro, 4, 1000, 1000, 100});
         this->adauga_port(port_constanta);
-        this->adauga_container(*pere_constanta.clone());
+        this->adauga_container(pere_constanta);
         this->adauga_nava(nava_tr_cont->clone());
         this->adauga_nava(nava_tr_pasageri->clone());
         this->adauga_nava(nava_tr_pasageri_si_cont->clone());
@@ -55,7 +55,7 @@ void TransportMaritim::adauga_elementele() {
         std::shared_ptr<Port> port_atena = std::make_shared<Port>(pb.oras("Atena").starePort(Port::DESCHIS).tara(gr2).build());
         Container mere_atena = Container{"Mere", 51, *port_atena};
         this->adauga_port(port_atena);
-        this->adauga_container(*mere_atena.clone());
+        this->adauga_container(mere_atena);
     } catch (build_object_invalid& err) {
         std::cout << err.what() << "\n";
     }
